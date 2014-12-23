@@ -36,4 +36,4 @@ function localStorage() {
 
 		document.getElementById("show2").innerHTML = "";
 		document.getElementById("show2").innerHTML = itemArray9;
-
+}		
