@@ -10,7 +10,8 @@ var newItem = document.getElementById("itemInput").value;
      itemArray.push(newItem);
   
 
-localStorage.asr = JSON.stringify(itemArray);  // set (update) LS - STRINGIFY 
+localStorage.asr = JSON.stringify(itemArray);                                // set (update) LS - STRINGIFY 
+//localStorage.setItem("asr",JSON.stringify(itemArray));                         // set current LS - PARSE
 
    document.getElementById("itemInput").value = itemArray.length;
   
@@ -35,5 +36,4 @@ function localStorage() {
 
 		document.getElementById("show2").innerHTML = "";
 		document.getElementById("show2").innerHTML = itemArray9;
- }
 
