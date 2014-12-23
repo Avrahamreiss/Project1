@@ -1,13 +1,15 @@
 var itemArray = [];
 //
 function pushItemToArray(){
-if ((localStorage.asr !== null) && (localStorage.asr !== "[]")) {             // &&  was ||
+asr = localStorage; 
+if ((localStorage.asr !== null) && (localStorage.asr !== "[]")) {              
        itemArray = JSON.parse(localStorage.asr);                                  // get current LS - PARSE
+//	   localStorage.getItem("asr",JSON.parse(itemArray));                         // get current LS - PARSE
 }
 var newItem = document.getElementById("itemInput").value;
      itemArray.push(newItem);
   
-asr = localStorage; 
+
 localStorage.asr = JSON.stringify(itemArray);  // set (update) LS - STRINGIFY 
 
    document.getElementById("itemInput").value = itemArray.length;
@@ -21,7 +23,10 @@ localStorage.asr = JSON.stringify(itemArray);  // set (update) LS - STRINGIFY
 function showListAsString (){
   var delimiter = document.getElementById("delimiterInput").value;
   var newStr = itemArray.join(delimiter);
+  if ((localStorage.asr !== null) && (localStorage.asr !== "[]")) {            
+       itemArray = JSON.parse(localStorage.asr);                                  // get current LS - PARSE
       document.getElementById("show").innerHTML = newStr;
+	  }
 }
 
 function localStorage() {
@@ -31,3 +36,4 @@ function localStorage() {
 		document.getElementById("show2").innerHTML = "";
 		document.getElementById("show2").innerHTML = itemArray9;
  }
+
